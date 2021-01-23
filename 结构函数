@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+using namespace std;
+struct student
+{
+	string name;
+	int age;
+	int score;
+};
+
+void print1(struct student stu ){                //值传递 
+     stu.age=99;
+	cout <<"子函数1中 姓名:"<<stu.name   <<"年龄:"<<stu.age   <<"成绩:"<<stu.score   <<endl;
+} 
+
+void print2(struct student *p ){               //地址传递 
+	cout <<"子函数2中 姓名:"<<p->name   <<"年龄:"<<p->age   <<"成绩:"<<p->score   <<endl;
+} 
+
+int main()
+{
+	struct student stu={"张三", 18 , 100 };
+	
+	print1( stu);
+	print2(&stu); 
+	cout<<"主函数中 姓名:"<<stu.name   <<"年龄:"<<stu.age   <<"成绩:"<<stu.score   <<endl;
+	return 0;
+}
