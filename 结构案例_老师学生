@@ -1,0 +1,51 @@
+#include <iostream>
+#include <string>
+using namespace std;
+struct student{
+	string sname;
+	int score;
+};
+struct teacher{
+	//姓名
+	string tname;
+	//学生
+	struct student stu[5]; 
+};
+
+void allocatespace( struct teacher tea[], int len)
+{
+	string nameseed = "ABCDEF";
+	for(int i=0; i<len; i++ ){
+		tea[i].tname = "Teacher_";
+		tea[i].tname += nameseed[i];
+		
+		for( int j=0; j<5; j++ ){
+			tea[i].stu[j].sname = "Student_";
+			tea[i].stu[j].sname += nameseed[j];
+			
+			//int random = rand() %61+40;    //40~100
+			tea[i].stu[j].score=60;
+			}
+		
+	}
+}
+void printinfo( struct teacher tea[], int len)
+{
+	for(int i=0; i<len; i++ ){
+		cout<<"老师的姓名："<<tea[i].tname   <<endl;
+		
+		for( int j=0; j<5; j++ ){
+			cout<<"     学生姓名："<<tea[i].stu[j].sname   <<
+			"     考试分数："<<tea[i].stu[j].score   <<endl; 
+		}
+	}
+}
+int main()
+{
+	struct teacher tea[3];
+	int len=sizeof(tea)/sizeof(tea[0]);
+	allocatespace(tea, len);
+	printinfo( tea, len);
+	
+	return 0;
+}
