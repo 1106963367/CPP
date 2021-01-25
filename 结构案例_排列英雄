@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+void bubble( struct hero h[],int len );
+using namespace std;
+struct hero{
+	string name;
+	int age;
+	string sex;
+};
+int main()
+{
+	struct hero h[5]={
+		{"刘备",23,"男"}, 
+		{"关羽",22,"男"}, 
+		{"张飞",20,"男"}, 
+		{"黄忠",55,"男"}, 
+		{"马超",18,"男"}, 
+	};
+	int len=sizeof( h)/sizeof(h[0]);
+	bubble( h, len );
+	for( int i=0; i<len; i++ ){
+		cout<<"姓名："<<h[i].name   <<"   年龄："<<h[i].age   <<"   性别："<<h[i].sex   <<endl;
+		 
+	} 
+	
+	
+}
+void bubble( struct hero h[],int len ){
+	for( int i=0; i<len-1; i++ ){
+		for( int j=0; j<len-i-1; j++ ){
+			if( h[j].age>h[j+1].age){
+				struct hero temp = h[j];
+				h[j] = h[j+1];
+				h[j+1] = temp;
+			}
+		}
+	}
+}
