@@ -1,0 +1,22 @@
+void findperson(  Addressbooks *abs ) 
+{
+	cout<<"请输入您要查找的联系人："<<endl;
+	string name;
+	cin >>name;
+	
+	//判断指定联系人是否存在
+	int ret=isExist( abs, name );
+	if( ret!=-1 ){
+		cout<<"姓名："<<abs->personarray[ret].name<<"\t";
+		cout<<"性别："<<abs->personarray[ret].sex<<"\t";
+		cout<<"年龄："<<abs->personarray[ret].age<<"\t";
+		cout<<"电话："<<abs->personarray[ret].phone<<"\t";
+		cout<<"住址："<<abs->personarray[ret].addr<<endl;
+	} else{
+		cout<<"查无此人！"<<endl;
+	}
+	
+	system("pause");
+	system("cls");
+	
+}
