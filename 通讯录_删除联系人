@@ -1,0 +1,36 @@
+//检测联系人是否存在，如果存在，返回联系人所在数组中的位置，不存在返回-1
+int isExist( Addressbooks *abs, string name )
+{
+	for( int i=0; i<abs->size; i++ ){
+		if( abs->personarray[i].name == name ){
+			return i;
+		}
+		
+	}
+	return -1;//如果找不到，返回-1； 
+} 
+
+//3、删除指定联系人
+void deleteperson( Addressbooks *abs )
+{
+	cout<<"请输入您要删除的联系人："<<endl;
+	string name;
+	cin>>name;
+	int ret=isExist( abs, name );
+	
+	if( ret!=-1 ){
+		
+		for( int i=ret; i< abs->size; i++ ){
+			//数据迁移
+			abs->personarray[i] = abs->personarray[i+1]; 
+		}
+		abs->size--;
+		cout<<"删除成功！"<<endl;
+	} else{
+		cout<<"查无此人"<<endl; 
+	}
+	
+	system("pause");
+	system("cls");
+	 
+} 
