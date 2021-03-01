@@ -1,0 +1,20 @@
+void showPerson( Addressbooks *abs ) {
+	//判断通讯录中人数是否为0，如果为0提示记录为空。
+	//不为0，显示
+	if( abs->size ==0 ){
+		cout <<"当前记录为空" << endl; 
+	} 
+	else{
+		for( int i=0; i<abs->size; i++ ){
+			cout <<"姓名： "<<abs->personarray[i].name <<"\t";
+			cout <<"性别： "<< (abs->personarray[i].sex ==1 ? "男":"女") <<"\t";
+			cout <<"年龄： "<<abs->personarray[i].age <<"\t";
+			cout <<"电话： "<<abs->personarray[i].phone <<"\t";
+			cout <<"住址： "<<abs->personarray[i].addr <<endl;
+		}
+	}
+	
+	system("pause");//按任意键继续
+	system("cls");
+	 
+}
