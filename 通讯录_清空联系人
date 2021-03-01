@@ -1,0 +1,25 @@
+void cleanperson( Addressbooks *abs )
+{
+	cout<<"您是否真的要清空联系人！！？"<<endl;
+	cout<<"是---1， 否---2"<<endl;
+	int check;
+	while( true ){
+		cin>>check;
+		if( check==1||check==2 ){
+			if( check==1){
+				abs->size=0;
+			    cout<<"通讯录已清空"<<endl;
+			    break;
+			} 
+			else{
+				cout<<"已终止"<<endl;
+				break;
+			}
+		}else{
+			cout<<"输入有误，请从新输入！"<<endl;
+		}
+	} 
+	
+	system("pause");
+	system("cls"); 
+} 
