@@ -11,7 +11,7 @@ int main()
 		for (j = 1; j < 13; j++) {
 			for (k = 1; k <= getday(i,j); k++) {
 				int a = (sum + 2) % 7;
-				if (k == 1 || a == 1) {
+				if (k == 1 || a == 0) {
 					ans += 2;
 				}
 				else {
